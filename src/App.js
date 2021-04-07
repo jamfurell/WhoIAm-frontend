@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
-import './App.css';
-import MasterForm from './MasterForm'
+import React from 'react'
+import Routes from './config/routes'
+
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <MasterForm> </MasterForm>
+      <Routes />
       
     </div>
   );
