@@ -28,11 +28,26 @@ class Part1 extends Component {
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
-                return  <Question key={index} question={question}/>
+               if (index >2 && index <5){
+                   return  <Question key={index} question={question.question} scale={question.scale}/>
+               }
             })
+            // const array_questions = data.questions
+            // const n = 2
+            // const firsttwo= array_questions.slice(0, n)
+            // console.log(firsttwo, "First two question of arrray!!!!")
+            // console.log(array_questions, "DATA from question model ALL")
+            // const array_q= firsttwo.map((question, index)=>{
+            //     return  <Question key={index} question={question}/>
+
+            // })
+            console.log(this.state.questions)
+            // console.log(array_q, " <=====the array-q")
             this.setState({questions: array_questions})
-            console.log(data, "<===data in componentDidMount")
-        })
+            })
+            // console.log(data, "<===data in componentDidMount")
+            // this.setState({questions: array_questions})
+        // })
     }
     
     render() {
