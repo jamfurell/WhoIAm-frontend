@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import Question from '../components/Question'
+import QuestionModel from '../models/question'
+import QusetionModel from '../models/question'
 
 
 // import React, { useState } from 'react';
@@ -18,6 +21,19 @@ import React, {Component} from 'react'
 
 
 class Part1 extends Component {
+
+    state= {
+        questions: []
+    }
+    componentDidMount(){
+        QuestionModel.all().then((data)=>{
+            const array_questions= data.questions.map((question, index)=>{
+                return  <Question key={index} question={question}/>
+            })
+            this.setState({questions: array_questions})
+            console.log(data, "<===data in componentDidMount")
+        })
+    }
     
     render() {
         if (this.props.currentStep !== 1) { // Prop: The current step
@@ -26,21 +42,22 @@ class Part1 extends Component {
         // The markup for the Step 1 UI
         return(
             <div className="form-group">
-                <div>
+                {this.state.questions}
+                {/* <div>
                     <h3> The question fetched from Queston Model will be HERE</h3>
                 </div>
                 <div>
-                    <input type="checkbox" class="checkbox-round" id="one" name="one" value="1" />
+                    <input type="radio" class="checkbox-round" id="one" name="one" value="1" />
                     <label for="one">1</label>
-                    <input type="checkbox" class="checkbox-round" id="two" name="two" value="2"/>
+                    <input type="radio" class="checkbox-round" id="two" name="one" value="2"/>
                     <label for="two">2</label>
-                    <input type="checkbox" class="checkbox-round" id="three" name="three" value="3"/>
+                    <input type="radio" class="checkbox-round" id="three" name="one" value="3"/>
                     <label for="three">3</label>
-                    <input type="checkbox" class="checkbox-round" id="four" name="four" value="4"/>
+                    <input type="radio" class="checkbox-round" id="four" name="one" value="4"/>
                     <label for="four">4</label>
-                    <input type="checkbox" class="checkbox-round" id="five" name="five" value="5"/>
+                    <input type="radio" class="checkbox-round" id="five" name="one" value="5"/>
                     <label for="five">5</label>
-                </div>
+                </div> */}
 
             </div>
     )}

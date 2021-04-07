@@ -25,7 +25,6 @@ class MasterForm extends Component {
         this.setState({
             currentStep: currentStep
         })
-        
     }
     
     get nextButton(){
@@ -36,7 +35,7 @@ class MasterForm extends Component {
         if(currentStep <3){
             return (
                 <button 
-                className="btn" 
+                className="btn-blue" 
                 type="button" 
                 onClick={this._next}>
                 Next
@@ -64,9 +63,7 @@ class MasterForm extends Component {
     fetchQuestions(){
         QuestionModel.all().then((data)=>{
             this.setState({questions: data})
-            
         })
-        
     }
 
     render() { 
@@ -75,17 +72,15 @@ class MasterForm extends Component {
         return (
             <React.Fragment>
             <h1>A Form!</h1>
-    
             Step {this.state.currentStep} / 3
     
             <form onSubmit={this.handleSubmit}>
-    
-            {/* // Render the form steps and pass in the required props */}
-            <Part1 
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}/>
-    
-            {this.nextButton}
+
+                <Part1 
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}/>
+        
+                {this.nextButton}
             </form>
         </React.Fragment>
         )
