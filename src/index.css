@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: rgb(241, 241, 241);
+  /* color: rgb(241, 241, 241); */
 }
 
 body{
@@ -55,6 +55,11 @@ nav a {
 .form-group{
   margin: 20px auto;
   padding: 20px;
+
+}
+.form-q{
+  color: rgb(243, 244, 255);
+  margin: 10px auto;
 }
 .checkbox-round {
   width: 1.3em;

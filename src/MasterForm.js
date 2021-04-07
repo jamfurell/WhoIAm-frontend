@@ -4,6 +4,10 @@ import React, {Component} from 'react'
 
 import QuestionModel from './models/question'
 import Part1 from './pages/Part1'
+import Part2 from './pages/Part2'
+import Part3 from './pages/Part3'
+import Part4 from './pages/Part4'
+import Part5 from './pages/Part5'
 
 
 class MasterForm extends Component {
@@ -21,7 +25,7 @@ class MasterForm extends Component {
     _next() {
         let currentStep = this.state.currentStep
         // If the current step is 1 or 2, then add one on "next" button click
-        currentStep = currentStep >= 2? 3: currentStep + 1
+        currentStep = currentStep >= 5? 4: currentStep + 1
         this.setState({
             currentStep: currentStep
         })
@@ -32,7 +36,7 @@ class MasterForm extends Component {
         this._next = this._next.bind(this)
         console.log(this.state.currentStep, "<====the currentStep")
         // If the current step is not 3, then render the "next" button
-        if(currentStep <3){
+        if(currentStep <5){
             return (
                 <button 
                 className="btn-blue" 
@@ -47,7 +51,7 @@ class MasterForm extends Component {
     }
     
     // Use the submitted data to set the state
-    handleChange(name, event) {
+    handleChange( event) {
         // const {name, value} = event.target
         // this.setState({
         //     [name]: value
@@ -57,14 +61,16 @@ class MasterForm extends Component {
         this.setState({extraversion: this.state.extraversion + int_value})
     }
     
-    // Trigger an alert on form submission : handleSubmit =(event) =>
+    // Trigger an alert on form submission : handleSubmit =(event) =>{
+    //     event.preventDefault();
+    // }
     
     // Render UI will go here...
-    fetchQuestions(){
-        QuestionModel.all().then((data)=>{
-            this.setState({questions: data})
-        })
-    }
+    // fetchQuestions(){
+    //     QuestionModel.all().then((data)=>{
+    //         this.setState({questions: data})
+    //     })
+    // }
 
     render() { 
         console.log(this.state.questions)
@@ -77,6 +83,18 @@ class MasterForm extends Component {
             <form onSubmit={this.handleSubmit}>
 
                 <Part1 
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}/>
+                <Part2
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}/>
+                <Part3
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}/>
+                <Part4
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}/>
+                <Part5
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}/>
         
