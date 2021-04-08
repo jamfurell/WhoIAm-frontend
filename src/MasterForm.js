@@ -8,7 +8,7 @@ import Part4 from './pages/Part4'
 import Part5 from './pages/Part5'
 
 import Test1 from './pages/test/Test1'
-import Test2 from './pages/Test2'
+import Test2 from './pages/test/Test2'
 
 class MasterForm extends Component {
     state = {
