@@ -68,7 +68,8 @@ class MasterForm extends Component {
         // console.log(event.target.value, " <===handleResponse event.target.value")
         if (event.target.name === "extraversion"){
             // let temp= parseInt(event.target.value) + this.state.extraversion
-            console.log(this.choiceRef.current.childNodes)
+            let inputChildNodes = this.choiceRef.current.childNodes
+            console.log(inputChildNodes)
             this.setState({ extraversion: {
                 
                 ...this.state.extraversion,

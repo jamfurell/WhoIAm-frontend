@@ -64,19 +64,19 @@ function Question (props){
                     onChange={props.handleResponse}/>
                     <label for="box-five">1</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-four" name={props.category} value={props.scale +1} 
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-four" name={props.category} value={props.scale -1} 
                     onChange={props.handleResponse}/>
                     <label for="box-four">2</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={props.scale +2} 
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={props.scale -2} 
                     onChange={props.handleResponse}/>
                     <label for="box-three">3</label>
 
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={props.scale +3} 
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={props.scale -3} 
                     onChange={props.handleResponse}/>
                     <label for="box-two">4</label>
 
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale +4} 
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale -4} 
                     onChange={props.handleResponse}/>
                     <label for="box-one">5</label> 
                 </div></div>)}
