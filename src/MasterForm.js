@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component, createRef} from 'react'
+
 
 
 
@@ -14,13 +15,14 @@ class MasterForm extends Component {
     state = {
         currentStep: 1, // Default is Step 1
         questions:[],
-        extraversion: 0,
-        agreeableness: [],
-        conscientiousness: [],
-        emotional_stability: [],
-        intellect: [], 
+        extraversion: {},
+        agreeableness: {},
+        conscientiousness: {},
+        emotional_stability: {},
+        intellect: {}, 
     }
     
+    choiceRef = createRef()
     
     _next() {
         let currentStep = this.state.currentStep
@@ -34,7 +36,7 @@ class MasterForm extends Component {
     get nextButton(){
         let currentStep = this.state.currentStep;
         this._next = this._next.bind(this)
-        console.log(this.state.currentStep, "<====the currentStep")
+        // console.log(this.state.currentStep, "<====the currentStep")
         // If the current step is not 3, then render the "next" button
         if(currentStep <5){
             return (
@@ -51,16 +53,51 @@ class MasterForm extends Component {
     }
     
     // Use the submitted data to set the state
-    handleChange( event) {
-        // const {name, value} = event.target
-        // this.setState({
-        //     [name]: value
-        // }) 
-        let value = event.target.value
-        let int_value= parseInt(value)
-        this.setState({extraversion: this.state.extraversion + int_value})
+    // handleChange( event) {
+    //     // const {name, value} = event.target
+    //     // this.setState({
+    //         //     [name]: value
+    //         // }) 
+    //         let value = event.target.value
+    //         let int_value= parseInt(value)
+    //         this.setState({extraversion: this.state.extraversion + int_value})
+    //     }
+
+    handleResponse = (event) =>{
+        // console.log(event.target.name, " <===handleResponse event.target.name")
+        // console.log(event.target.value, " <===handleResponse event.target.value")
+        if (event.target.name === "extraversion"){
+            // let temp= parseInt(event.target.value) + this.state.extraversion
+            console.log(this.choiceRef.current.childNodes)
+            this.setState({ extraversion: {
+                
+                ...this.state.extraversion,
+                dataQuestion: parseInt(event.target.value)
+            }})
+            // this.setState({ extraversion: temp})
+        } else if (event.target.name === "agreeableness"){
+            let temp= event.target.value + this.state.agreeableness
+            this.setState({ agreeableness: temp})
+        } else if (event.target.name === "conscientiousness"){
+            let temp= event.target.value + this.state.conscientiousness
+            this.setState({ conscientiousness: temp})
+        } else if (event.target.name === "emotional_stability"){
+            let temp= event.target.value + this.state.emotional_stability
+            this.setState({ emotional_stability: temp})
+        } else if (event.target.name === "intellect"){
+            let temp= event.target.value + this.state.intellect
+            this.setState({ intellect: temp})
+        }
+        // document.querySelector()
+        // console.log(event.target.input.data, "~~~~~~~~~~~~~~~~~~~")
+        document.getElementById(event.target.id).setAttribute("disabled", true)
+        console.log(this.state.extraversion, "<======extraversion")
+        console.log(this.state.agreeableness, "<======agreeableness")
+        console.log(this.state.conscientiousness, "<======conscientiousness")
+        console.log(this.state.emotional_stability, "<======emotional_stability")
+        console.log(this.state.intellect, "<======intellect")
     }
-    
+        
     // Trigger an alert on form submission : handleSubmit =(event) =>{
     //     event.preventDefault();
     // }
@@ -73,30 +110,32 @@ class MasterForm extends Component {
     // }
 
     render() { 
-        console.log(this.state.questions)
-        console.log(this.state.extraversion, "<===the extraversion")
+        // console.log(this.state.questions)
+        // console.log(this.state.extraversion, "<===the extraversion")
         return (
             <React.Fragment>
             <h1>A Form!</h1>
-            Step {this.state.currentStep} / 3
+            Step {this.state.currentStep} / 5
     
             <form onSubmit={this.handleSubmit}>
 
                 <Part1 
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}/>
+                handleResponse={this.handleResponse}
+                choiceRef={this.choiceRef}/>
                 <Part2
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}/>
+                handleResponse={this.handleResponse}
+                />
                 <Part3
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}/>
+                handleResponse={this.handleResponse}/>
                 <Part4
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}/>
+                handleResponse={this.handleResponse}/>
                 <Part5
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}/>
+                handleResponse={this.handleResponse}/>
         
                 {this.nextButton}
             </form>

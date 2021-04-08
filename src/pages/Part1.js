@@ -25,12 +25,13 @@ class Part1 extends Component {
     state= {
         questions: []
     }
+    
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
-               if (index <10){
-                   return  <Question key={index} question={question.question} scale={question.scale}/>
-               }
+                if (index <10){
+                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse} choiceRef={this.props.choiceRef}/>
+                }
             })
             // const array_questions = data.questions
             // const n = 2
@@ -38,11 +39,13 @@ class Part1 extends Component {
             // console.log(firsttwo, "First two question of arrray!!!!")
             // console.log(array_questions, "DATA from question model ALL")
             // const array_q= firsttwo.map((question, index)=>{
-            //     return  <Question key={index} question={question}/>
-
-            // })
-            
-            // console.log(array_q, " <=====the array-q")
+                //     return  <Question key={index} question={question}/>
+                
+                // })
+                
+                // console.log(array_q, " <=====the array-q")
+            // localStorage.setItem("test", array_questions )
+            localStorage.clear()
             this.setState({questions: array_questions})
             })
             // console.log(data, "<===data in componentDidMount")
