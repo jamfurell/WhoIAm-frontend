@@ -55,7 +55,7 @@ class Test2 extends Component {
                 {/* WHY does it need the line below when we're passing it in componentDidMount???? */}
                 {this.state.questions}
                 
-​               <button className="btn">Sign up</button>
+​               <button className="btn">Submit Results</button>
         </div>
     )}
 }

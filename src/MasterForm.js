@@ -1,5 +1,6 @@
 import React, {Component, createRef} from 'react'
 import QuestionModel from './models/question'
+import TestTakenModel from './models/TestTaken'
 import Part1 from './pages/Part1'
 import Part2 from './pages/Part2'
 import Part3 from './pages/Part3'
@@ -138,6 +139,37 @@ class MasterForm extends Component {
         }
     }
     
+    handleSubmit = (event) => {
+    event.preventDefault();
+    const {extraversion1,
+        agreeableness1,
+        conscientiousness1,
+        emotional_stability1,
+        intellect1, 
+        extraversion2,
+        agreeableness2,
+        conscientiousness2,
+        emotional_stability2,
+        intellect2 } = this.state
+    let extraversion= extraversion1 + extraversion2
+    let agreeableness= agreeableness1 + agreeableness2
+    let conscientiousness= conscientiousness1 + conscientiousness2
+    let emotional_stability= emotional_stability1 + emotional_stability2
+    let intellect= intellect1 + intellect2
+
+    TestTakenModel.create({ extraversion, agreeableness, conscientiousness, emotional_stability, intellect })
+    .then(data => {
+        event.history.push('/')
+    })
+
+    alert(`Your test results: \n 
+    extraversion: ${extraversion} \n 
+    agreable: ${agreeableness} \n
+    conscientiousn: ${conscientiousness} \n
+    emotional_stability: ${emotional_stability}\n
+    intellect: ${intellect}`)
+    }
+
     render() { 
         return (
             <React.Fragment>
@@ -185,3 +217,4 @@ class MasterForm extends Component {
     }
 }
 export default MasterForm
+
