@@ -13,7 +13,7 @@ import QuestionModel from '../models/question'
 //     conscientiousness: [],
 //     emotional_stability: [],
 //     intellect: []
-class Part1 extends Component {
+class Test2 extends Component {
 
     state= {
         questions: []
@@ -21,8 +21,8 @@ class Part1 extends Component {
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
-                if (index <10){
-                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse} changeResponse={this.props.changeResponse} choiceRef={this.props.choiceRef}/>
+                if (index <5){
+                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse2} changeResponse={this.props.changeResponse2} choiceRef={this.props.choiceRef}/>
                 }
             })
             // const array_questions = data.questions
@@ -46,7 +46,7 @@ class Part1 extends Component {
     }
     
     render() {
-        if (this.props.currentStep !== 1) { // Prop: The current step
+        if (this.props.currentStep !== 2) { // Prop: The current step
             return null
         }
         // The markup for the Step 1 UI
@@ -55,9 +55,9 @@ class Part1 extends Component {
                 {/* WHY does it need the line below when we're passing it in componentDidMount???? */}
                 {this.state.questions}
                 
-​
-            </div>
+​               <button className="btn">Sign up</button>
+        </div>
     )}
 }
 
-export default Part1
+export default Test2

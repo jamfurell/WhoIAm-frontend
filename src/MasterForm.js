@@ -1,8 +1,4 @@
 import React, {Component, createRef} from 'react'
-
-
-
-
 import QuestionModel from './models/question'
 import Part1 from './pages/Part1'
 import Part2 from './pages/Part2'
@@ -10,20 +6,25 @@ import Part3 from './pages/Part3'
 import Part4 from './pages/Part4'
 import Part5 from './pages/Part5'
 
+import Test1 from './pages/Test1'
+import Test2 from './pages/Test2'
 
 class MasterForm extends Component {
     state = {
         currentStep: 1, // Default is Step 1
         questions:[],
-        extraversion: {},
-        agreeableness: {},
-        conscientiousness: {},
-        emotional_stability: {},
-        intellect: {}, 
+        extraversion1: 0,
+        agreeableness1: 0,
+        conscientiousness1: 0,
+        emotional_stability1: 0,
+        intellect1: 0, 
+        extraversion2: 0,
+        agreeableness2: 0,
+        conscientiousness2: 0,
+        emotional_stability2: 0,
+        intellect2: 0, 
     }
-    
     choiceRef = createRef()
-    
     _next() {
         let currentStep = this.state.currentStep
         // If the current step is 1 or 2, then add one on "next" button click
@@ -32,7 +33,7 @@ class MasterForm extends Component {
             currentStep: currentStep
         })
     }
-    
+
     get nextButton(){
         let currentStep = this.state.currentStep;
         this._next = this._next.bind(this)
@@ -48,95 +49,134 @@ class MasterForm extends Component {
             </button> 
             )
         }
-        // ...else render nothing
         return null;
     }
-    
-    // Use the submitted data to set the state
-    // handleChange( event) {
-    //     // const {name, value} = event.target
-    //     // this.setState({
-    //         //     [name]: value
-    //         // }) 
-    //         let value = event.target.value
-    //         let int_value= parseInt(value)
-    //         this.setState({extraversion: this.state.extraversion + int_value})
-    //     }
 
-    handleResponse = (event) =>{
-        // console.log(event.target.name, " <===handleResponse event.target.name")
-        // console.log(event.target.value, " <===handleResponse event.target.value")
+    handleResponse1 = (event) =>{
         if (event.target.name === "extraversion"){
-            // let temp= parseInt(event.target.value) + this.state.extraversion
-            let inputChildNodes = this.choiceRef.current.childNodes
-            console.log(inputChildNodes)
-            this.setState({ extraversion: {
-                
-                ...this.state.extraversion,
-                dataQuestion: parseInt(event.target.value)
-            }})
-            // this.setState({ extraversion: temp})
+            let temp= parseInt(event.target.value) + this.state.extraversion1
+            this.setState({ extraversion1: temp})
         } else if (event.target.name === "agreeableness"){
-            let temp= event.target.value + this.state.agreeableness
-            this.setState({ agreeableness: temp})
+            let temp= parseInt(event.target.value) + this.state.agreeableness1
+            this.setState({ agreeableness1: temp})
         } else if (event.target.name === "conscientiousness"){
-            let temp= event.target.value + this.state.conscientiousness
-            this.setState({ conscientiousness: temp})
+            let temp= parseInt(event.target.value) + this.state.conscientiousness1
+            this.setState({ conscientiousness1: temp})
         } else if (event.target.name === "emotional_stability"){
-            let temp= event.target.value + this.state.emotional_stability
-            this.setState({ emotional_stability: temp})
+            let temp= parseInt(event.target.value) + this.state.emotional_stability1
+            this.setState({ emotional_stability1: temp})
         } else if (event.target.name === "intellect"){
-            let temp= event.target.value + this.state.intellect
-            this.setState({ intellect: temp})
+            let temp= parseInt(event.target.value) + this.state.intellect1
+            this.setState({ intellect1: temp})
         }
-        // document.querySelector()
-        // console.log(event.target.input.data, "~~~~~~~~~~~~~~~~~~~")
-        document.getElementById(event.target.id).setAttribute("disabled", true)
-        console.log(this.state.extraversion, "<======extraversion")
-        console.log(this.state.agreeableness, "<======agreeableness")
-        console.log(this.state.conscientiousness, "<======conscientiousness")
-        console.log(this.state.emotional_stability, "<======emotional_stability")
-        console.log(this.state.intellect, "<======intellect")
+        console.log(this.state.extraversion1, "<======extraversion1")
+        console.log(this.state.agreeableness1, "<======agreeableness1")
+        console.log(this.state.conscientiousness1, "<======conscientiousness1")
+        console.log(this.state.emotional_stability1, "<======emotional_stability1")
+        console.log(this.state.intellect1, "<======intellect1")
     }
-        
-    // Trigger an alert on form submission : handleSubmit =(event) =>{
-    //     event.preventDefault();
-    // }
     
-    // Render UI will go here...
-    // fetchQuestions(){
-    //     QuestionModel.all().then((data)=>{
-    //         this.setState({questions: data})
-    //     })
-    // }
+    changeResponse1 = (event,previous) =>{
+        if (event.target.name === "extraversion1"){
+            let temp= parseInt(event.target.value) + this.state.extraversion1 - previous
+            this.setState({ extraversion1: temp})
+        }else if (event.target.name === "agreeableness1"){
+            let temp= parseInt(event.target.value) + this.state.agreeableness1 - previous
+            this.setState({ agreeableness1: temp})
+        } else if (event.target.name === "conscientiousness1"){
+            let temp= parseInt(event.target.value) + this.state.conscientiousness1 - previous
+            this.setState({ conscientiousness1: temp})
+        } else if (event.target.name === "emotional_stability1"){
+            let temp= parseInt(event.target.value) + this.state.emotional_stability1 - previous
+            this.setState({ emotional_stability1: temp})
+        } else if (event.target.name === "intellect1"){
+            let temp= parseInt(event.target.value) + this.state.intellect1 - previous
+            this.setState({ intellect1: temp})
+        }
+    }
 
+    handleResponse2 = (event) =>{
+        if (event.target.name === "extraversion"){
+            let temp= parseInt(event.target.value) + this.state.extraversion2
+            this.setState({ extraversion2: temp})
+        } else if (event.target.name === "agreeableness"){
+            let temp= parseInt(event.target.value) + this.state.agreeableness2
+            this.setState({ agreeableness2: temp})
+        } else if (event.target.name === "conscientiousness"){
+            let temp= parseInt(event.target.value) + this.state.conscientiousness2
+            this.setState({ conscientiousness2: temp})
+        } else if (event.target.name === "emotional_stability"){
+            let temp= parseInt(event.target.value) + this.state.emotional_stability2
+            this.setState({ emotional_stability2: temp})
+        } else if (event.target.name === "intellect"){
+            let temp= parseInt(event.target.value) + this.state.intellect2
+            this.setState({ intellect2: temp})
+        }
+        console.log(this.state.extraversion2, "<======extraversion2")
+        console.log(this.state.agreeableness2, "<======agreeableness2")
+        console.log(this.state.conscientiousness2, "<======conscientiousness2")
+        console.log(this.state.emotional_stability2, "<======emotional_stability2")
+        console.log(this.state.intellect2, "<======intellect2")
+    }
+    
+    changeResponse2 = (event,previous) =>{
+        if (event.target.name === "extraversion2"){
+            let temp= parseInt(event.target.value) + this.state.extraversion2 - previous
+            this.setState({ extraversion2: temp})
+        }else if (event.target.name === "agreeableness2"){
+            let temp= parseInt(event.target.value) + this.state.agreeableness2 - previous
+            this.setState({ agreeableness2: temp})
+        } else if (event.target.name === "conscientiousness2"){
+            let temp= parseInt(event.target.value) + this.state.conscientiousness2 - previous
+            this.setState({ conscientiousness2: temp})
+        } else if (event.target.name === "emotional_stability2"){
+            let temp= parseInt(event.target.value) + this.state.emotional_stability2 - previous
+            this.setState({ emotional_stability2: temp})
+        } else if (event.target.name === "intellect2"){
+            let temp= parseInt(event.target.value) + this.state.intellect2 - previous
+            this.setState({ intellect2: temp})
+        }
+    }
+    
     render() { 
-        // console.log(this.state.questions)
-        // console.log(this.state.extraversion, "<===the extraversion")
         return (
             <React.Fragment>
             <h1>A Form!</h1>
             Step {this.state.currentStep} / 5
     
             <form onSubmit={this.handleSubmit}>
-
-                <Part1 
+​               <Test1 
+                currentStep={this.state.currentStep}
+                handleResponse1={this.handleResponse1}
+                changeResponse1 = {this.changeResponse1}
+                choiceRef={this.choiceRef}/>
+                <Test2
+                currentStep={this.state.currentStep}
+                changeResponse2 = {this.changeResponse2}
+                handleResponse2={this.handleResponse2}
+                />
+                {/* <Part1 
                 currentStep={this.state.currentStep}
                 handleResponse={this.handleResponse}
+                changeResponse = {this.changeResponse}
                 choiceRef={this.choiceRef}/>
                 <Part2
                 currentStep={this.state.currentStep}
+                changeResponse = {this.changeResponse}
                 handleResponse={this.handleResponse}
                 />
                 <Part3
                 currentStep={this.state.currentStep}
+                changeResponse = {this.changeResponse}
                 handleResponse={this.handleResponse}/>
                 <Part4
                 currentStep={this.state.currentStep}
+                changeResponse = {this.changeResponse}
                 handleResponse={this.handleResponse}/>
                 <Part5
                 currentStep={this.state.currentStep}
-                handleResponse={this.handleResponse}/>
+                changeResponse = {this.changeResponse}
+                handleResponse={this.handleResponse}/> */}
         
                 {this.nextButton}
             </form>
@@ -144,73 +184,4 @@ class MasterForm extends Component {
         )
     }
 }
-
 export default MasterForm
-
-
-// constructor(props) {
-//     super(props)
-
-//     this.state = {
-//         currentStep: 1, // Default is Step 1
-//         questions:[],
-//         part1: '',
-//         part2: '',
-//         part3: '', 
-//     }
-//     this._next = this._next.bind(this)
-//     // Set the initial input values
-    
-//     // Bind the submission to handleChange() 
-//     this.handleChange = this.handleChange.bind(this)
-// }
-// handleSubmit = (event) => {
-    // event.preventDefault()
-    // const { email, username, password } = this.state
-    // alert(`Your registration detail: \n 
-    // Email: ${email} \n 
-    // Username: ${username} \n
-    // Password: ${password}`)
-    // }
-{/* <Part1 
-    currentStep={this.state.currentStep} 
-    handleChange={this.handleChange}
-    email={this.state.email}
-/> */}
-{/* <Step2 
-    currentStep={this.state.currentStep} 
-    handleChange={this.handleChange}
-    username={this.state.username}
-    />
-    <Step3 
-    currentStep={this.state.currentStep} 
-    handleChange={this.handleChange}
-    password={this.state.password}
-/>  */}
-{/* {this.previousButton} */}
-// this._prev = this._prev.bind(this)
-// _prev() {
-//     let currentStep = this.state.currentStep
-//     // If the current step is 2 or 3, then subtract one on "previous" button click
-//     currentStep = currentStep <= 1? 1: currentStep - 1
-//     this.setState({
-//         currentStep: currentStep
-//     })
-// }
-
-// get previousButton(){
-//     let currentStep = this.state.currentStep;
-//     // If the current step is not 1, then render the "previous" button
-//     if(currentStep !==1){
-//         return (
-//         <button 
-//         className="btn btn-secondary" 
-//         type="button" 
-//         onClick={this._prev}>
-//             Previous
-//         </button>
-//         )
-//     }
-//     // ...else return nothing
-//     return null;
-// }

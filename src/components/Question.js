@@ -2,24 +2,18 @@ import React, {useState, useEffect} from 'react'
 import QuestionModel from '../models/question'
 
 function Question (props){
-
+    const [previous, setPrevious] = useState(0);
     const [checkName, setCheckName] = useState(0)
     const [selection, setSelection] = useState(0)
 
-    useEffect(()=>{
-
-        // onChangeValue = onChangeValue.bind(this)
-    }, [])
-    let handleChange =(e)=> {
-            // let value = event.currentTarget.value
-            // let target = event.target
-            // let value= target.value
-            // // let category= 
-            // let int_value= parseInt(value)
-            // console.log("This is the int value ====>", int_value)
-            setSelection(e.target.value)
-            console.log("This is the selection after useState >>>>", selection)
+    const handleResponse = (e) =>{
+        if(previous>0){
+            props.changeResponse(e,previous)
+        }else{
+            props.handleResponse(e)
         }
+        setPrevious(parseInt(e.target.value))
+    }
     
         
         //should checkboxes be seperate component??
@@ -35,23 +29,23 @@ function Question (props){
                 </div>
                 <div ref={props.choiceRef}>
                     start1<input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale} 
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-one">1</label>
                     
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={(props.scale)+1}
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-two">2</label>
                     
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={(props.scale)+2}
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-three">3</label>
-
+​
                     <input type="radio" data-question={props.key} className="checkbox-round {props.key}" id="box-four" name={props.category} value={(props.scale)+3}
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-four">4</label>
-
+​
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={props.category} value={(props.scale)+4}
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-five">5</label>
                 </div></div>)
                 :
@@ -61,47 +55,27 @@ function Question (props){
                 </div>
                 <div>
                     start5<input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={props.category} value={props.scale}  
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-five">1</label>
                     
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-four" name={props.category} value={props.scale -1} 
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-four">2</label>
                     
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={props.scale -2} 
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-three">3</label>
-
+​
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={props.scale -3} 
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-two">4</label>
-
+​
                     <input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale -4} 
-                    onChange={props.handleResponse}/>
+                    onChange={handleResponse}/>
                     <label for="box-one">5</label> 
                 </div></div>)}
             
         </>
     )
 }
-
 export default Question
-// for (i=0; i< props.length; i++){
-//     checknumber = checkName + 0;
-//     stringnumber= String(checknumber)
-//     console.log(stringnumber)
-//     useCheckName(stringnumber)
-// }
-// console.log(typeOf(String(checkName)))
-
-
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}
-// onChange={this.selectionChanged}

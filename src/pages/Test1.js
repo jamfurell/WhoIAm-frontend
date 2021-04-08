@@ -13,7 +13,7 @@ import QuestionModel from '../models/question'
 //     conscientiousness: [],
 //     emotional_stability: [],
 //     intellect: []
-class Part1 extends Component {
+class Test1 extends Component {
 
     state= {
         questions: []
@@ -21,8 +21,8 @@ class Part1 extends Component {
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
-                if (index <10){
-                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse} changeResponse={this.props.changeResponse} choiceRef={this.props.choiceRef}/>
+                if (index <5){
+                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse1} changeResponse={this.props.changeResponse1} choiceRef={this.props.choiceRef}/>
                 }
             })
             // const array_questions = data.questions
@@ -60,4 +60,4 @@ class Part1 extends Component {
     )}
 }
 
-export default Part1
+export default Test1
