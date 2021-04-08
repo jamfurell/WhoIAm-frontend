@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Question from '../components/Question'
-import QuestionModel from '../models/question'
+import Question from '../../components/Question'
+import QuestionModel from '../../models/question'
 // import React, { useState } from 'react';
 // import GameModel from '../models/game'
 // function Part1(props) {
