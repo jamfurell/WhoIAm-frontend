@@ -11,7 +11,7 @@ state ={
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
                if (index >39 && index <50){
-                   return  <Question key={index} question={question.question} scale={question.scale}/>
+                   return  <Question key={index} question={question.question} scale={question.scale} category={question.category}  handleResponse={this.props.handleResponse} />
                }
             })
             this.setState({questions: array_questions})
@@ -27,8 +27,7 @@ state ={
                 {/* WHY does it need the line below when we're passing it in componentDidMount???? */}
                 {this.state.questions}
                 
-
-            </div>
+                </div>
     )}
 }
 

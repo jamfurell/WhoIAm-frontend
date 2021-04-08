@@ -6,14 +6,6 @@ function Question (props){
     const [checkName, setCheckName] = useState(0)
     const [selection, setSelection] = useState(0)
 
-    const handleResponse = (e) =>{
-        if(previous>0){
-            props.changeResponse(e,previous)
-        }else{
-            props.handleResponse(e)
-        }
-        setPrevious(parseInt(e.target.value))
-    }
     
         
         //should checkboxes be seperate component??
@@ -22,58 +14,58 @@ function Question (props){
             <>
             {props.scale === 1
             ?
-            ( <div className="form-q">
+            ( <form className="form-q">
                 <div>
                     {/* <h3> {props.question.question} (Qs from DB)</h3> */}
                     <h3> {props.question} (Qs from DB)</h3>
                 </div>
                 <div ref={props.choiceRef}>
-                    start1<input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale} 
-                    onChange={handleResponse}/>
+                    start1<input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={`${props.category}`} value={props.scale} 
+                    onChange={props.handleResponse}/>
                     <label for="box-one">1</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={(props.scale)+1}
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={`${props.category}`} value={(props.scale)+1}
+                    onChange={props.handleResponse}/>
                     <label for="box-two">2</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={(props.scale)+2}
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={`${props.category}`} value={(props.scale)+2}
+                    onChange={props.handleResponse}/>
                     <label for="box-three">3</label>
 ​
-                    <input type="radio" data-question={props.key} className="checkbox-round {props.key}" id="box-four" name={props.category} value={(props.scale)+3}
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round {props.key}" id="box-four" name={`${props.category}`} value={(props.scale)+3}
+                    onChange={props.handleResponse}/>
                     <label for="box-four">4</label>
 ​
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={props.category} value={(props.scale)+4}
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={`${props.category}`} value={(props.scale)+4}
+                    onChange={props.handleResponse}/>
                     <label for="box-five">5</label>
-                </div></div>)
+                </div></form>)
                 :
-                ( <div classNameName="form-q"><div>
+                ( <form classNameName="form-q"><div>
                     {/* <h3> {props.question.question} (Qs from DB)</h3> */}
                     <h3> {props.question} (Qs from DB)</h3>
                 </div>
                 <div>
-                    start5<input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={props.category} value={props.scale}  
-                    onChange={handleResponse}/>
+                    start5<input type="radio" data-question={props.key} className="checkbox-round" id="box-five" name={`${props.category}`} value={props.scale}  
+                    onChange={props.handleResponse}/>
                     <label for="box-five">1</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-four" name={props.category} value={props.scale -1} 
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-four" name={`${props.category}`} value={props.scale -1} 
+                    onChange={props.handleResponse}/>
                     <label for="box-four">2</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={props.category} value={props.scale -2} 
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={`${props.category}`} value={props.scale } 
+                    onChange={props.handleResponse}/>
                     <label for="box-three">3</label>
 ​
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={props.category} value={props.scale -3} 
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-two" name={`${props.category}`} value={props.scale -3} 
+                    onChange={props.handleResponse}/>
                     <label for="box-two">4</label>
 ​
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={props.category} value={props.scale -4} 
-                    onChange={handleResponse}/>
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-one" name={`${props.category}`} value={props.scale -4} 
+                    onChange={props.handleResponse}/>
                     <label for="box-one">5</label> 
-                </div></div>)}
+                </div></form>)}
             
         </>
     )
