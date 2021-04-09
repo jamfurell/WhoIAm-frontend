@@ -1,9 +1,9 @@
 .all-results{
-    justify-content: center;
+    justify-content: right;
 }
 .column {
     /* float: left; */
-    width: 50%;
+    width: 75%;
     padding: 0 10px;
 }
   

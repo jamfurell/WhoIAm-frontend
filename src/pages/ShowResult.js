@@ -1,7 +1,11 @@
 
 import React, {useState, useEffect} from 'react'
 import TestTakenModel from '../models/TestTaken'
-import Extraversion_Res from '../components/Extraversion_Res'
+import Ext_Res from '../components/results/Ext_Res'
+import Agr_Res from '../components/results/Agr_Res'
+import Con_Res from '../components/results/Con_Res'
+import Emt_Res from '../components/results/Emt_Res'
+import Int_Res from '../components/results/Int_Res'
 import '../Results.css'
 
 const ShowResult = (props) =>{
@@ -33,24 +37,24 @@ const ShowResult = (props) =>{
             </h2> 
             <div class="column">
                 <div class="row">
-                    <Extraversion_Res category={results} score={results.extraversion}/>
+                    <Ext_Res category={results} score={results.extraversion}/>
 
                 </div>
             
                 <div class="row">
-
+                    <Agr_Res category={results} score={results.agreeableness}/>
                 </div>
                 
                 <div class="row">
-
+                    <Con_Res category={results} score={results.conscientiousness}/>
                 </div>
                 
                 <div class="row">
-
+                    <Emt_Res category={results} score={results.emotional_stability}/>
                 </div>
 
                 <div class="row">
-
+                    <Int_Res category={results} score={results.intellect}/>
                 </div>
         </div>
 
