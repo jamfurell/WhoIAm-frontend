@@ -11,6 +11,7 @@ class TestTakenModel {
     }
 
     static create = (TestTakenData) => {
+        console.log(TestTakenData)
         return fetch(`${url}/TestTaken`, {
         method: "POST",
         headers: {

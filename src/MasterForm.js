@@ -12,7 +12,7 @@ import Test2 from './pages/test/Test2'
 
 class MasterForm extends Component {
     state = {
-        currentStep: 1, // Default is Step 1
+        currentStep: 0, // Default is Step 1
         questions:[],
         extraversion: 0,
         agreeableness: 0,
@@ -38,9 +38,17 @@ class MasterForm extends Component {
     get nextButton(){
         let currentStep = this.state.currentStep;
         this._next = this._next.bind(this)
-        // console.log(this.state.currentStep, "<====the currentStep")
+        console.log(this.state.currentStep, "<====the currentStep")
         // If the current step is not 3, then render the "next" button
-        if(currentStep <5){
+        if(currentStep === 5){
+            return(
+                <button
+                className="btn-blue"
+                type="submit">
+                    Submit
+                </button>
+            )
+        } else{
             return (
                 <button 
                 className="btn-blue" 
@@ -50,7 +58,7 @@ class MasterForm extends Component {
             </button> 
             )
         }
-        return null;
+    
     }
 
     handleResponse = (event) =>{
@@ -71,64 +79,48 @@ class MasterForm extends Component {
             let temp= parseInt(event.target.value) + this.state.intellect
             this.setState({ intellect: temp})
         }
-        console.log(this.state.extraversion, "<======extraversion")
-        console.log(this.state.agreeableness, "<======agreeableness")
-        console.log(this.state.conscientiousness, "<======conscientiousness")
-        console.log(this.state.emotional_stability, "<======emotional_stability")
-        console.log(this.state.intellect, "<======intellect")
+        // console.log(this.state.extraversion, "<======extraversion")
+        // console.log(this.state.agreeableness, "<======agreeableness")
+        // console.log(this.state.conscientiousness, "<======conscientiousness")
+        // console.log(this.state.emotional_stability, "<======emotional_stability")
+        // console.log(this.state.intellect, "<======intellect")
     }
     
-
-
     
     handleSubmit = (event) => {
-    event.preventDefault();
-    const {extraversion1,
-        agreeableness1,
-        conscientiousness1,
-        emotional_stability1,
-        intellect1, 
-        extraversion2,
-        agreeableness2,
-        conscientiousness2,
-        emotional_stability2,
-        intellect2 } = this.state
-    let extraversion= extraversion1 + extraversion2
-    let agreeableness= agreeableness1 + agreeableness2
-    let conscientiousness= conscientiousness1 + conscientiousness2
-    let emotional_stability= emotional_stability1 + emotional_stability2
-    let intellect= intellect1 + intellect2
+        event.preventDefault();
+        const {extraversion,
+            agreeableness,
+            conscientiousness,
+            emotional_stability,
+            intellect} = this.state
+        
+        console.log("In the handleSubmit!!!")
+        console.log(extraversion, agreeableness, conscientiousness, emotional_stability, intellect )
 
-    TestTakenModel.create({ extraversion, agreeableness, conscientiousness, emotional_stability, intellect })
-    .then(data => {
-        event.history.push('/')
-    })
+        TestTakenModel.create({ extraversion, agreeableness, conscientiousness, emotional_stability, intellect })
+            .then(data => {
+                console.log(data,"<=====DATA inside onsubmit takenmodel")
+                this.props.history.push(`/TestTaken/${data.TestTaken._id}`)
+            }
+        )
 
-    alert(`Your test results: \n 
-    extraversion: ${extraversion} \n 
-    agreable: ${agreeableness} \n
-    conscientiousn: ${conscientiousness} \n
-    emotional_stability: ${emotional_stability}\n
-    intellect: ${intellect}`)
+        alert(`Your test results: \n 
+        extraversion: ${extraversion} \n 
+        agreable: ${agreeableness} \n
+        conscientiousn: ${conscientiousness} \n
+        emotional_stability: ${emotional_stability}\n
+        intellect: ${intellect}`)
     }
 
     render() { 
         return (
             <React.Fragment>
             <h1>A Form!</h1>
-            Step {this.state.currentStep} / 5
+            Step {this.state.currentStep +1} / 5
     
             <form onSubmit={this.handleSubmit}>
-{/* ​               <Test1 
-                currentStep={this.state.currentStep}
-                handleResponse1={this.handleResponse1}
-                changeResponse1 = {this.changeResponse1}
-                choiceRef={this.choiceRef}/>
-                <Test2
-                currentStep={this.state.currentStep}
-                changeResponse2 = {this.changeResponse2}
-                handleResponse2={this.handleResponse2}
-                /> */}
+
                 <Part1 
                 currentStep={this.state.currentStep}
                 handleResponse={this.handleResponse}
@@ -153,7 +145,7 @@ class MasterForm extends Component {
                 handleResponse={this.handleResponse}/>
         
                 {this.nextButton}
-                write submit button 
+                
             </form>
         </React.Fragment>
         )
@@ -161,3 +153,4 @@ class MasterForm extends Component {
 }
 export default MasterForm
 
+//Please read each statement carefully and then mark the appropriate response below. Select the answer that best represents the personality characteristics you currently have not you would like to have in the future. Use the following scale to record your response

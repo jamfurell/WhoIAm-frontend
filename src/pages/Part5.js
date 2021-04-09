@@ -19,7 +19,7 @@ state ={
     }
 
     render(){
-        if (this.props.currentStep !==5) { // Prop: The current step
+        if (this.props.currentStep !==4) { // Prop: The current step
             return null
         }
         return(
