@@ -85,6 +85,24 @@ class MasterForm extends Component {
         // console.log(this.state.emotional_stability, "<======emotional_stability")
         // console.log(this.state.intellect, "<======intellect")
     }
+    changeResponse = (event,previous) =>{
+        if (event.target.name === "extraversion"){
+            let temp= parseInt(event.target.value) + this.state.extraversion - previous
+            this.setState({ extraversion: temp})
+        }else if (event.target.name === "agreeableness"){
+            let temp= parseInt(event.target.value) + this.state.agreeableness - previous
+            this.setState({ agreeableness: temp})
+        } else if (event.target.name === "conscientiousness"){
+            let temp= parseInt(event.target.value) + this.state.conscientiousness - previous
+            this.setState({ conscientiousness: temp})
+        } else if (event.target.name === "emotional_stability"){
+            let temp= parseInt(event.target.value) + this.state.emotional_stability - previous
+            this.setState({ emotional_stability: temp})
+        } else if (event.target.name === "intellect"){
+            let temp= parseInt(event.target.value) + this.state.intellect - previous
+            this.setState({ intellect: temp})
+        }
+    }
     
     
     handleSubmit = (event) => {
