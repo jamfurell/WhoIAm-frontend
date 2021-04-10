@@ -48,20 +48,7 @@ const ShowResult = (props) =>{
             history.push('/')
         }) 
     }
-        
-    //     TestTakenModel.delete(result).then( (res) =>{
 
-    // alert(`Your test results have been deleted successfully`)
-    //         history.push('/')
-
-    //     }) 
-    // let updatedResults= allresult.filter((result) => {
-    //         return result._id !== res.data._id;
-    //     });
-        // console.log(result, "<<<<===========result inside delteResult")
-        //     allresult.filter((res)=>{
-            //         console.log(res.data._id,"<<<<<<======res.data._id from filtering allresult")
-            //     })
     
     return(
         <div className="all-results">
