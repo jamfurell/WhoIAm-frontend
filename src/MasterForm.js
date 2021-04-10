@@ -123,12 +123,12 @@ class MasterForm extends Component {
             }
         )
 
-        alert(`Your test results: \n 
-        extraversion: ${extraversion} \n 
-        agreable: ${agreeableness} \n
-        conscientiousn: ${conscientiousness} \n
-        emotional_stability: ${emotional_stability}\n
-        intellect: ${intellect}`)
+        // alert(`Your test results: \n 
+        // extraversion: ${extraversion} \n 
+        // agreable: ${agreeableness} \n
+        // conscientiousn: ${conscientiousness} \n
+        // emotional_stability: ${emotional_stability}\n
+        // intellect: ${intellect}`)
     }
 
     render() { 

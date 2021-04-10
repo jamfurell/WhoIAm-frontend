@@ -1,12 +1,15 @@
-
 import React, {useState, useEffect} from 'react'
 import TestTakenModel from '../models/TestTaken'
+// import component for each personality category 
 import Ext_Res from '../components/results/Ext_Res'
 import Agr_Res from '../components/results/Agr_Res'
 import Con_Res from '../components/results/Con_Res'
 import Emt_Res from '../components/results/Emt_Res'
 import Int_Res from '../components/results/Int_Res'
+
+import AddNameForm from '../components/AddNameForm'
 import '../Results.css'
+
 
 const ShowResult = (props) =>{
     const [results, setResults] = useState({});
@@ -28,7 +31,11 @@ const ShowResult = (props) =>{
 
         }
     ,[])
-    
+    const deleteResult=()=>{
+        return (
+            console.log("you clicked alert box")
+        )
+    }
     
     return(
         <div className="all-results">
@@ -37,27 +44,28 @@ const ShowResult = (props) =>{
             </h2> 
             <div class="column">
                 <div class="row">
-                    <Ext_Res category={results} score={results.extraversion}/>
+                    <Ext_Res results={results} score={results.extraversion}/>
 
                 </div>
             
                 <div class="row">
-                    <Agr_Res category={results} score={results.agreeableness}/>
+                    <Agr_Res results={results} score={results.agreeableness}/>
                 </div>
                 
                 <div class="row">
-                    <Con_Res category={results} score={results.conscientiousness}/>
+                    <Con_Res results={results} score={results.conscientiousness}/>
                 </div>
                 
                 <div class="row">
-                    <Emt_Res category={results} score={results.emotional_stability}/>
+                    <Emt_Res results={results} score={results.emotional_stability}/>
                 </div>
 
                 <div class="row">
-                    <Int_Res category={results} score={results.intellect}/>
+                    <Int_Res results={results} score={results.intellect}/>
                 </div>
         </div>
-
+            <AddNameForm results={results} id={props.match.params.id}/>
+            <button onClick={deleteResult}>Click for alert</button>
         </div>
     )
 }

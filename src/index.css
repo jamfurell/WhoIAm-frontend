@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Bodoni Moda', 'Open Sans' sans-serif;
   /* color: rgb(241, 241, 241); */
 }
 
 body{
-  height: 100%;
   background:linear-gradient(190deg, rgba(48,51,77,1), rgba(90, 112, 185, 0.8),rgba(94,141,186, 0.5)  70.71%); 
+  height: 100%;
   /* background: linear-gradient(207deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
             linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); */

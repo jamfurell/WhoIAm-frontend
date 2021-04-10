@@ -2,7 +2,7 @@ import React from 'react';
 // import './GameCard.scss'
 
 const Con_Res = (props) => {
-    console.log(props,"<+<++<+<++++++++ props inside ResultCard")
+    // console.log(props,"<+<++<+<++++++++ props inside ResultCard")
     // console.log(level(props.score), "~~~~~~~~~score!!!")
 
     const showLevel=(score)=>{
