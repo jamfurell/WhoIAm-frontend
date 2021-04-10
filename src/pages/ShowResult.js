@@ -12,12 +12,13 @@ import '../Results.css'
 
 
 const ShowResult = (props) =>{
-    const [results, setResults] = useState({});
+    const [result, setResult] = useState({});
+    const [allresult, setAllResult] = useState([]);
 
     function fetchScores(id) { 
         if (id) {
             TestTakenModel.show(id).then((data) => {
-                setResults(data.TestTaken);
+                setResult(data.TestTaken);
                 console.log(data.TestTaken,"<<===== Testtakenmodel.show data inside")
             });
             } else {
@@ -27,14 +28,26 @@ const ShowResult = (props) =>{
         
         useEffect(()=>{
             // console.log(props.match.params.id)
+            TestTakenModel.all().then( (res) => {
+                setAllResult(res)
+            });
             fetchScores(props.match.params.id)
 
         }
     ,[])
-    const deleteResult=()=>{
-        return (
-            console.log("you clicked alert box")
-        )
+
+    const deleteResult=(result)=>{
+        // allresult.filter((res)=>{
+        //     console.log(res.data._id,"<<<<<<======res.data._id from filtering allresult")
+        // })
+        console.log(result, "<<<<===========result inside delteResult")
+        // TestTakenModel.delete(result).then( (res) =>{
+        //     let updatedResults= allresult.filter((result) => {
+        //         return result._id !== res.data._id;
+        //     });
+        //     this.setState({todos})
+        // })
+        
     }
     
     return(
@@ -44,28 +57,28 @@ const ShowResult = (props) =>{
             </h2> 
             <div class="column">
                 <div class="row">
-                    <Ext_Res results={results} score={results.extraversion}/>
+                    <Ext_Res results={result} score={result.extraversion}/>
 
                 </div>
             
                 <div class="row">
-                    <Agr_Res results={results} score={results.agreeableness}/>
+                    <Agr_Res results={result} score={result.agreeableness}/>
                 </div>
                 
                 <div class="row">
-                    <Con_Res results={results} score={results.conscientiousness}/>
+                    <Con_Res results={result} score={result.conscientiousness}/>
                 </div>
                 
                 <div class="row">
-                    <Emt_Res results={results} score={results.emotional_stability}/>
+                    <Emt_Res results={result} score={result.emotional_stability}/>
                 </div>
 
                 <div class="row">
-                    <Int_Res results={results} score={results.intellect}/>
+                    <Int_Res results={result} score={result.intellect}/>
                 </div>
         </div>
-            <AddNameForm results={results} id={props.match.params.id}/>
-            <button onClick={deleteResult}>Click for alert</button>
+            <AddNameForm results={result} id={props.match.params.id}/>
+            <button onClick={deleteResult}>Click to Delete Data</button>
         </div>
     )
 }

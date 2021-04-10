@@ -31,7 +31,7 @@ function AddNameForm (props){
         // console.log(name)
         // console.log(event.target[0].value)
         let testid = props.id
-        TestTakenModel.update({ name: name }, {testid})
+        TestTakenModel.update({ name: name }, testid)
             .then(updatedData => {
                 console.log(updatedData,"<=====DATA inside onsubmit takenmodel")
                 let allcapsName = name.toUpperCase()

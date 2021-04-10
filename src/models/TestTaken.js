@@ -22,7 +22,7 @@ class TestTakenModel {
         .then(res => res.json())
     }
 
-    static update= (TestTakenId) => {
+    static update= (TestTakenId, TestTaken) => {
         console.log(TestTakenId)
 
         return fetch(`${url}/TestTaken/${TestTakenId}`, {
@@ -38,13 +38,13 @@ class TestTakenModel {
     }
 
     static delete= (TestTakenId) => {
-        return fetch(`${url}/TestTaken/${TestTakenId}`, {
+        return fetch(`${url}/TestTaken/${TestTakenId}`, 
+        {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify(TestTakenId)
-            })
+            }
+        }).then (res => res.json())
         }
     }
 
