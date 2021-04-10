@@ -21,7 +21,7 @@ const ShowResult = (props) =>{
         if (id) {
             TestTakenModel.show(id).then((data) => {
                 setResult(data.TestTaken);
-                console.log(data.TestTaken,"<<===== Inside showresult page --Testtakenmodel.show data")
+                // console.log(data.TestTaken,"<<===== Inside showresult page --Testtakenmodel.show data")
             });
             } else {
                 return null;
@@ -37,12 +37,24 @@ const ShowResult = (props) =>{
         }
     ,[])
 
-    const deleteResult=(result)=>{
+    const deleteClickedResult = () =>{
+        console.log("this is result being passed to deleteResult function=======>", result)
+        deleteResult(result._id)
+    }
+    const deleteResult = (result) =>{
+        console.log("IN THE DELETE RESULT FFFFUNCTION ~~~~~show me result >", result)
         TestTakenModel.delete(result).then( (res) =>{
+            alert(`Your test results have been deleted successfully`)
             history.push('/')
-
         }) 
     }
+        
+    //     TestTakenModel.delete(result).then( (res) =>{
+
+    // alert(`Your test results have been deleted successfully`)
+    //         history.push('/')
+
+    //     }) 
     // let updatedResults= allresult.filter((result) => {
     //         return result._id !== res.data._id;
     //     });
@@ -79,7 +91,7 @@ const ShowResult = (props) =>{
                 </div>
         </div>
             <AddNameForm results={result} id={props.match.params.id}/>
-            <button onClick={deleteResult}>Click to Delete Data</button>
+            <button onClick={deleteClickedResult}>Click to Delete Data</button>
         </div>
     )
 }
