@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Question from '../components/Question'
 import QuestionModel from '../models/question'
 
-class Part3 extends Component {
+class Part4 extends Component {
 
 state ={
     questions: [],
@@ -10,8 +10,8 @@ state ={
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
-                if (index >19 && index <30){
-                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse} changeResponse={this.props.changeResponse}/>
+                if (index >29 && index <40){
+                    return  <Question key={index} question={question.question} scale={question.scale} category={question.category}  handleResponse={this.props.handleResponse} changeResponse={this.props.changeResponse}/>
                 }
             })
             this.setState({questions: array_questions})
@@ -19,7 +19,7 @@ state ={
     }
 
     render(){
-        if (this.props.currentStep !==2) { // Prop: The current step
+        if (this.props.currentStep !==3) { // Prop: The current step
             return null
         }
         return(
@@ -32,4 +32,4 @@ state ={
     )}
 }
 
-export default Part3
+export default Part4
