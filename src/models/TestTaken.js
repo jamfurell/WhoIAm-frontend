@@ -30,7 +30,7 @@ class TestTakenModel {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(TestTakenId)
+        body: JSON.stringify(TestTaken)
         })
         .then(res => res.json())
         // let request= axios.put(`${endPoint}/${todo._id}`, todo);

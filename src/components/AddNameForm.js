@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from 'react-router-dom';
+
 import TestTakenModel from '../models/TestTaken'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -13,7 +15,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 function AddNameForm (props){
     const [open, setOpen] = React.useState(false);
     const [name, setName] = useState();
-
+    const history = useHistory();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -27,17 +29,17 @@ function AddNameForm (props){
     };
     const handleNameSubmit =(event)=>{
         event.preventDefault();
-        
         // console.log(name)
         // console.log(event.target[0].value)
+
         let testid = props.id
-        TestTakenModel.update({ name: name }, testid)
+        TestTakenModel.update( testid, { name: name })
             .then(updatedData => {
                 console.log(updatedData,"<=====DATA inside onsubmit takenmodel")
-                let allcapsName = name.toUpperCase()
+                // let allcapsName = name.toUpperCase()
                 // alert(`Your name ${allcapsName} has been saved with your results. Thank you for taking our quiz.`)
 
-                // props.history.push(`/`)
+                history.push(`/`)
             }
         )
     }

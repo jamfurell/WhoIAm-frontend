@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import TestTakenModel from '../models/TestTaken'
+import { useHistory } from 'react-router-dom';
 // import component for each personality category 
 import Ext_Res from '../components/results/Ext_Res'
 import Agr_Res from '../components/results/Agr_Res'
@@ -14,41 +15,41 @@ import '../Results.css'
 const ShowResult = (props) =>{
     const [result, setResult] = useState({});
     const [allresult, setAllResult] = useState([]);
+    const history = useHistory()
 
     function fetchScores(id) { 
         if (id) {
             TestTakenModel.show(id).then((data) => {
                 setResult(data.TestTaken);
-                console.log(data.TestTaken,"<<===== Testtakenmodel.show data inside")
+                console.log(data.TestTaken,"<<===== Inside showresult page --Testtakenmodel.show data")
             });
             } else {
                 return null;
             }
         }
         
-        useEffect(()=>{
-            // console.log(props.match.params.id)
-            TestTakenModel.all().then( (res) => {
-                setAllResult(res)
-            });
-            fetchScores(props.match.params.id)
-
+    useEffect(()=>{
+        // console.log(props.match.params.id)
+        TestTakenModel.all().then( (res) => {
+            setAllResult(res)
+        });
+        fetchScores(props.match.params.id)
         }
     ,[])
 
     const deleteResult=(result)=>{
-        // allresult.filter((res)=>{
-        //     console.log(res.data._id,"<<<<<<======res.data._id from filtering allresult")
-        // })
-        console.log(result, "<<<<===========result inside delteResult")
-        // TestTakenModel.delete(result).then( (res) =>{
-        //     let updatedResults= allresult.filter((result) => {
-        //         return result._id !== res.data._id;
-        //     });
-        //     this.setState({todos})
-        // })
-        
+        TestTakenModel.delete(result).then( (res) =>{
+            history.push('/')
+
+        }) 
     }
+    // let updatedResults= allresult.filter((result) => {
+    //         return result._id !== res.data._id;
+    //     });
+        // console.log(result, "<<<<===========result inside delteResult")
+        //     allresult.filter((res)=>{
+            //         console.log(res.data._id,"<<<<<<======res.data._id from filtering allresult")
+            //     })
     
     return(
         <div className="all-results">

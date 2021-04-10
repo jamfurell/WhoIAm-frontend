@@ -63,7 +63,7 @@ function Question (props){
                     onChange={handleResponse} required/>
                     <label for="box-four">2</label>
                     
-                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={`${props.category}`} value={props.scale } 
+                    <input type="radio" data-question={props.key} className="checkbox-round" id="box-three" name={`${props.category}`} value={props.scale -2} 
                     onChange={handleResponse} required/>
                     <label for="box-three">3</label>
 ​

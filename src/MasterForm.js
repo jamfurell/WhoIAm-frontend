@@ -123,18 +123,13 @@ class MasterForm extends Component {
             }
         )
 
-        // alert(`Your test results: \n 
-        // extraversion: ${extraversion} \n 
-        // agreable: ${agreeableness} \n
-        // conscientiousn: ${conscientiousness} \n
-        // emotional_stability: ${emotional_stability}\n
-        // intellect: ${intellect}`)
     }
-
+    
     render() { 
         return (
             <React.Fragment>
-            <h1>A Form!</h1>
+            <h3>Please read each statement carefully and then mark the appropriate response below. Select the answer that best represents the personality characteristics you currently have not you would like to have in the future. Use the following scale to record your response</h3>
+            <p> 1= very inaccurate 2= somewhat inaccurate 3=neither/nor 4= somewhat accurate 5= very accurate</p>
             Step {this.state.currentStep +1} / 5
     
             <form onSubmit={this.handleSubmit}>
@@ -171,4 +166,10 @@ class MasterForm extends Component {
 }
 export default MasterForm
 
+// alert(`Your test results: \n 
+// extraversion: ${extraversion} \n 
+// agreable: ${agreeableness} \n
+// conscientiousn: ${conscientiousness} \n
+// emotional_stability: ${emotional_stability}\n
+// intellect: ${intellect}`)
 //Please read each statement carefully and then mark the appropriate response below. Select the answer that best represents the personality characteristics you currently have not you would like to have in the future. Use the following scale to record your response
