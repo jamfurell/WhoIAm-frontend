@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         display: `flex`,
         // justifyContent: `space-between`
         width: '100%',
-        zIndex: '1100',
+        // zIndex: '1100',
         flexshrink:'0',
         flexdirection:'column',
     },
