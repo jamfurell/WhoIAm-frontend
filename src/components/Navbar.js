@@ -8,7 +8,8 @@ import { Home } from "@material-ui/icons"
 const useStyles = makeStyles({
     navbarDisplayFlex: {
         display: `flex`,
-        justifyContent: `flexstart`
+        justifyContent: `flexstart`,
+        position: 'fixed'
     },
     listDisplayFlex: {
         display: `flex`,
@@ -29,6 +30,7 @@ const useStyles = makeStyles({
     },
     navColor:{
         backgroundColor:'#191a1ded',
+        position: 'fixed',
     }
 });
     
