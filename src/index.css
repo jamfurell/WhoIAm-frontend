@@ -7,11 +7,12 @@
 }
 
 body{
-  background:linear-gradient(190deg, rgba(48,51,77,1), rgba(90, 112, 185, 0.8),rgba(94,141,186, 0.5)  70.71%); 
+  /* background:linear-gradient(190deg, rgba(48,51,77,1), rgba(90, 112, 185, 0.8),rgba(94,141,186, 0.5)  70.71%);  */
   height: 100%;
   /* background: linear-gradient(207deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
             linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%); */
+            /* color:black; */
 }
 html{
   height: 100%;
@@ -20,7 +21,7 @@ html{
   height: 100%;
 }
 
-.Home{
+/* .Home{
   margin:20px auto;
   text-align: center;
 }
@@ -84,7 +85,7 @@ nav a {
   border-radius: 10px;
   border: 1px solid grey;
   box-shadow:1px 3px 3px rgb(34, 32, 32);
-}
+} */
 
 
 /* body {
