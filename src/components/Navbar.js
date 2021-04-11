@@ -13,18 +13,16 @@ const useStyles = makeStyles({
     },
     listDisplayFlex: {
         display: `flex`,
-        // justifyContent: `space-between`
         width: '100%',
-        // zIndex: '1100',
-        flexshrink:'0',
+        flexshrink: 0,
         flexdirection:'column',
     },
     linkText: {
         textDecoration: `none`,
         color: `white`,
-        top:'0',
+        top: 0,
         left:'auto',
-        right:'0',
+        right: 0,
         margin:'25px',
         position:'fixed',
     },
@@ -47,16 +45,9 @@ function Navbar(){
                     <List component="nav" aria-labelledby="main navigation" className={classes.listDisplayFlex}>
                         <Link className={classes.linkText} to={'/'}>About</Link>
                     </List>
-
                 </Container>
             </Toolbar>
         </AppBar>
-        // <nav>
-        //     <a class="hamburger" href="#"></a>
-        //     <ul>
-        //         <li><Link to={'/'}>About</Link></li>
-        //     </ul>
-	    // </nav>
     )
 }
 
