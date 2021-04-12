@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# WhoIAm--backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+I·M is a site where users can take a nonformal personality assessment by going through a set of 50 questions ([provided by IPIP public source domain](https://ipip.ori.org/)). 
 
-## Available Scripts
+The questionnaire assesses five personality traits: Extraversion, Agreeableness, Conscientiousness, Emotional Stability, and Intellect.
 
-In the project directory, you can run:
+After going through the questionnaire, users will be taken to a page displaying their results. 
 
-### `npm start`
+The results will show how they scored along the range of the personality trait along with a detailed description of what a high/low score indicates.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### PREVIEW 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img width="1792" alt="Screen Shot 2021-04-12 at 1 29 27 AM" src="https://user-images.githubusercontent.com/76925728/114365173-0daad600-9b2f-11eb-8c35-4e94f1410584.png">
 
-### `npm test`
+<img width="1778" alt="Screen Shot 2021-04-12 at 1 31 18 AM" src="https://user-images.githubusercontent.com/76925728/114365188-100d3000-9b2f-11eb-85ec-b23b36d7d5a4.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### USER STORIES
+As a user, I want to be able to click a button that will take me to a page showing a list of questions to answer.
+As a user, I want to be able to see my scores/results from the questionnaire, along with a description of what that score entails.
+As a user, I want to be able to add and save my name with my scores/results.
+As a user, I want to be able to delete my scores/results.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* REACT
+* MONGODB
+* @MATERIAL UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Link to the Frontend
+https://github.com/jamfurell/WhoIAm--backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Enhancements
 
-### `npm run eject`
+Future goals would be applying user authentication and allowing users to save their past test results.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Sources
+[Link to IPIP home page](https://ipip.ori.org/)()
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
