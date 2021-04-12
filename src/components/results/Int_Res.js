@@ -27,7 +27,7 @@ const Int_Res = (props) => {
                 <h3>Intellect</h3>
                 <p>Scored: {props.score} / 50</p>
                 <p> A score of {props.score} is considered {showLevel(props.score)}</p>
-                <p>Intellect is characterized by the level of curiousity and imagination.</p>
+                <p>Intellect is characterized by the level of curiosity and imagination.</p>
                 <p>People who are high in intellect are more likely to enjoy new experiences and can seek extreme experiences.</p>
                 <p>Poeple low in intellect tend to be more pragmatic</p>
             </div>

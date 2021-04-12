@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import TestTakenModel from '../models/TestTaken'
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 // import component for each personality category 
 import Ext_Res from '../components/results/Ext_Res'
 import Agr_Res from '../components/results/Agr_Res'
@@ -8,13 +10,15 @@ import Con_Res from '../components/results/Con_Res'
 import Emt_Res from '../components/results/Emt_Res'
 import Int_Res from '../components/results/Int_Res'
 
+
+
 import AddNameForm from '../components/AddNameForm'
 import '../Results.css'
 
 
 const ShowResult = (props) =>{
     const [result, setResult] = useState({});
-    const [allresult, setAllResult] = useState([]);
+    // const [allresult, setAllResult] = useState([]);
     const history = useHistory()
 
     function fetchScores(id) { 
@@ -30,9 +34,9 @@ const ShowResult = (props) =>{
         
     useEffect(()=>{
         // console.log(props.match.params.id)
-        TestTakenModel.all().then( (res) => {
-            setAllResult(res)
-        });
+        // TestTakenModel.all().then( (res) => {
+        //     setAllResult(res)
+        // });
         fetchScores(props.match.params.id)
         }
     ,[])
@@ -78,7 +82,7 @@ const ShowResult = (props) =>{
                 </div>
         </div>
             <AddNameForm results={result} id={props.match.params.id}/>
-            <button onClick={deleteClickedResult}>Click to Delete Data</button>
+            <Button onClick={deleteClickedResult}>Click to Delete Data</Button>
         </div>
     )
 }

@@ -4,7 +4,7 @@
 .masterForm-Container{
   margin:0;
   padding: 0;
-  background: linear-gradient(175deg, rgba(18, 18, 94, 0.8), rgba(69, 69, 170, 0) 70.71%);
+  background: linear-gradient(155deg, rgba(138, 202, 231, 0.842), rgba(247, 171, 247, 0.705) 70.71%);
 }
 .masterform-head{
   margin-top: 80px;
@@ -17,7 +17,7 @@
 }
 .masterForm-step{
   font-family: "Open-Sans";
-  border-bottom: 2px solid rgb(202, 201, 201);
+  /* border-bottom: 2px solid rgb(202, 201, 201); */
 }
 @media only screen and (max-width: 600px) {
   .masterform-head{
@@ -30,7 +30,19 @@
     margin-top: 80px;
   }
 }
-.form-q{
+.form-group{
+  background: #ffffff66;
+  padding: 10px 100px;
+  border-radius: 15%;
+}
+@media only screen and (max-width: 600px) {
+  .form-group{
+    background: #ffffff66;
+    padding: 10px 100px;
+    border-radius: 5%;
+  }
+}
+.question-q{
   color: rgb(36, 37, 46);
   margin: 10px auto;
 }

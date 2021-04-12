@@ -18,7 +18,7 @@ function Question (props){
         <>
             {props.scale === 1
             ?
-            ( <form className="form-q">
+            ( <form className="question-q">
                 <div>
                     <h3> {props.question}</h3>
                 </div>
@@ -44,7 +44,7 @@ function Question (props){
                     onChange={handleResponse} required/>
                 </div></form>)
             :
-            ( <form className="form-q">
+            ( <form className="question-q">
                 <div>
                     <h3> {props.question} (Qs from DB)</h3>
                 </div>
