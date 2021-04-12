@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom';
 
 import TestTakenModel from '../models/TestTaken'
@@ -7,21 +7,28 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import {makeStyles} from "@material-ui/core"
 
-
+const useStyles = makeStyles(theme =>({
+    saveButton:{
+        background: '#4367e8f2',
+        color: 'white',
+        [theme.breakpoints.down('sm')]: {
+            margin: '15px 70px'
+        },
+    },
+}))
 
 function AddNameForm (props){
     const [open, setOpen] = React.useState(false);
     const [name, setName] = useState();
     const history = useHistory();
+    const classes = useStyles();
 
     const handleClickOpen = () => {
         setOpen(true);
-        console.log("youve opened dialog!")
-        console.log(props.id)
-        
     };
         
     const handleClose = () => {
@@ -29,16 +36,9 @@ function AddNameForm (props){
     };
     const handleNameSubmit =(event)=>{
         event.preventDefault();
-        // console.log(name)
-        // console.log(event.target[0].value)
-
         let testid = props.id
         TestTakenModel.update( testid, { name: name })
             .then(updatedData => {
-                console.log(updatedData,"<=====DATA inside onsubmit takenmodel")
-                // let allcapsName = name.toUpperCase()
-                // alert(`Your name ${allcapsName} has been saved with your results. Thank you for taking our quiz.`)
-
                 history.push(`/`)
             }
         )
@@ -46,33 +46,33 @@ function AddNameForm (props){
 
     return (
         <div>
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-            Save Name With Scores
-        </Button>
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">Add Name</DialogTitle>
+            <Button className={classes.saveButton} variant="contained" onClick={handleClickOpen}>
+                <FavoriteIcon /> Save Name With Scores
+            </Button>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Add Name</DialogTitle>
                 <form onSubmit={handleNameSubmit}> 
-            <DialogContent>
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Your Name"
-                    type="name"
-                    fullWidth
-                    onChange={(e) => setName(e.target.value)}
-                    />
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                    Cancel
-                </Button>
-                <Button type="submit" color="primary">
-                    Submit
-                </Button>
-            </DialogActions>
-                    </form>
-        </Dialog>
+                    <DialogContent>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Your Name"
+                            type="name"
+                            fullWidth
+                            onChange={(e) => setName(e.target.value)}
+                            />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button type="submit" color="primary">
+                            Submit
+                        </Button>
+                    </DialogActions>
+                </form>
+            </Dialog>
         </div>
     );
 }

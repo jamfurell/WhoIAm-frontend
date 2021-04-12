@@ -21,8 +21,6 @@ const useStyles = makeStyles({
         textDecoration: `none`,
         color: `white`,
         top: 0,
-        left:'auto',
-        right: 0,
         margin:'25px',
         position:'fixed',
     },
@@ -40,11 +38,10 @@ function Navbar(){
             <Toolbar>
                 <Container maxWidth="md" className={classes.navbarDisplayFlex}>
                     <IconButton edge="start" color="inherit" aria-label="home">
+                    <Link className={classes.linkText} to={'/'}>
                         <Home fontSize="large" />
+                        </Link>
                     </IconButton>
-                    <List component="nav" aria-labelledby="main navigation" className={classes.listDisplayFlex}>
-                        <Link className={classes.linkText} to={'/'}>About</Link>
-                    </List>
                 </Container>
             </Toolbar>
         </AppBar>

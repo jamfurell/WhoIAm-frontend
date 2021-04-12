@@ -46,7 +46,7 @@ function Question (props){
             :
             ( <form className="question-q">
                 <div>
-                    <h3> {props.question} (Qs from DB)</h3>
+                    <h3> {props.question}</h3>
                 </div>
                 <div>
                     <label for="box-five">1</label>

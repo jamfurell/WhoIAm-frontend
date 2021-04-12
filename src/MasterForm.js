@@ -52,7 +52,6 @@ class MasterForm extends Component {
 
     //storing user input value into correct state
     handleResponse = (event) =>{
-        console.log(event.target.name, event.target.value)
         if (event.target.name === "extraversion"){
             let temp= parseInt(event.target.value) + this.state.extraversion
             this.setState({ extraversion: temp})

@@ -14,8 +14,6 @@ return (
         <Route path='/test/:id' component={Question}/>
         <Route path='/test' component={MasterForm} />
         <Route path='/TestTaken/:id' component={ShowResult} />
-
-
     </Switch>
     )
 }

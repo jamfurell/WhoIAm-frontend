@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 500,
+        width:'600px',
         backgroundColor:"#DAF0FD",
         margin: '10px',
     },
@@ -67,7 +67,7 @@ export default function Con_Res(props) {
                         Em
                     </Avatar>
                 }
-                title="CONSCIENTIOUSNESS"
+                title="EMOTIONAL STABILITY"
                 subheader={scoreOutofTotal} 
             />
             <CardActions className={classes.cardAction} disableSpacing>

@@ -17,7 +17,6 @@
 }
 .masterForm-step{
   font-family: "Open-Sans";
-  /* border-bottom: 2px solid rgb(202, 201, 201); */
 }
 @media only screen and (max-width: 600px) {
   .masterform-head{
@@ -34,11 +33,12 @@
   background: #ffffff66;
   padding: 10px 100px;
   border-radius: 15%;
+  max-width: 550px;
 }
 @media only screen and (max-width: 600px) {
   .form-group{
     background: #ffffff66;
-    padding: 10px 100px;
+    padding: 10px 90px;
     border-radius: 5%;
   }
 }
@@ -76,7 +76,8 @@
   width: 115px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .btn span {
@@ -103,42 +104,3 @@
   opacity: 1;
   right: 0;
 }
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
