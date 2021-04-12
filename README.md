@@ -1,4 +1,4 @@
-# WhoIAm--backend
+# WhoIAm-frontend
 
 ## Introduction
 I·M is a site where users can take a nonformal personality assessment by going through a set of 50 questions ([provided by IPIP public source domain](https://ipip.ori.org/)). 
