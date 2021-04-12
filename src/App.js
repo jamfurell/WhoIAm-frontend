@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React from 'react'
 import Routes from './config/routes'
 import Navbar from './components/Navbar'
@@ -11,7 +10,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes />
-      
     </div>
   );
 }

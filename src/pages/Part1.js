@@ -1,18 +1,7 @@
 import React, {Component} from 'react'
 import Question from '../components/Question'
 import QuestionModel from '../models/question'
-// import React, { useState } from 'react';
-// import GameModel from '../models/game'
-// function Part1(props) {
-//     const [title, setTitle] = useState("");
-//     const [publisher, setPublisher] = useState("");
-//     const [coverArtUrl, setCoverArtUrl] = useState("");
-//     const [completed, setCompleted] = useState(false);
-//     extraversion: 0,
-//     agreeableness: [],
-//     conscientiousness: [],
-//     emotional_stability: [],
-//     intellect: []
+
 class Part1 extends Component {
 
     state= {
@@ -25,37 +14,17 @@ class Part1 extends Component {
                     return  <Question key={index} question={question.question} scale={question.scale} category={question.category} handleResponse={this.props.handleResponse} changeResponse={this.props.changeResponse} choiceRef={this.props.choiceRef}/>
                 }
             })
-            // const array_questions = data.questions
-            // const n = 2
-            // const firsttwo= array_questions.slice(0, n)
-            // console.log(firsttwo, "First two question of arrray!!!!")
-            // console.log(array_questions, "DATA from question model ALL")
-            // const array_q= firsttwo.map((question, index)=>{
-                //     return  <Question key={index} question={question}/>
-                
-                // })
-                
-                // console.log(array_q, " <=====the array-q")
-            // localStorage.setItem("test", array_questions )
-            localStorage.clear()
             this.setState({questions: array_questions})
-            })
-            // console.log(data, "<===data in componentDidMount")
-            // this.setState({questions: array_questions})
-        // })
+        })
     }
     
     render() {
-        if (this.props.currentStep !== 0) { // Prop: The current step
+        if (this.props.currentStep !== 0) {
             return null
         }
-        // The markup for the Step 1 UI
         return(
             <div className="form-group">
-                {/* WHY does it need the line below when we're passing it in componentDidMount???? */}
-                {this.state.questions}
-                
-​
+                {this.state.questions}               
             </div>
     )}
 }

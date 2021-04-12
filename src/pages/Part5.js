@@ -4,9 +4,9 @@ import QuestionModel from '../models/question'
 
 class Part5 extends Component {
 
-state ={
-    questions: [],
-}
+    state ={
+        questions: [],
+    }
     componentDidMount(){
         QuestionModel.all().then((data)=>{
             const array_questions= data.questions.map((question, index)=>{
@@ -15,7 +15,7 @@ state ={
                 }
             })
             this.setState({questions: array_questions})
-            })
+        })
     }
 
     render(){
@@ -24,10 +24,8 @@ state ={
         }
         return(
             <div className="form-group">
-                {/* WHY does it need the line below when we're passing it in componentDidMount???? */}
                 {this.state.questions}
-                
-                </div>
+            </div>
     )}
 }
 

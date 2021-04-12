@@ -1,38 +1,106 @@
-.App {
+.App{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.masterForm-Container{
+  margin:0;
+  padding: 0;
+  background: linear-gradient(155deg, rgba(138, 202, 231, 0.842), rgba(247, 171, 247, 0.705) 70.71%);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.masterform-head{
+  margin-top: 80px;
+}
+.mfdetail{
+  font-size: 20px;
+}
+.masterForm-scale{
+   font-size: 18px;
+}
+.masterForm-step{
+  font-family: "Open-Sans";
+}
+@media only screen and (max-width: 600px) {
+  .masterform-head{
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media only screen and (min-width: 1200px) {
+  .masterform-head{
+    margin-top: 80px;
+  }
+}
+.form-group{
+  background: #ffffff66;
+  padding: 10px 100px;
+  border-radius: 15%;
+  max-width: 550px;
+}
+@media only screen and (max-width: 600px) {
+  .form-group{
+    background: #ffffff66;
+    padding: 10px 90px;
+    border-radius: 5%;
+  }
+}
+.question-q{
+  color: rgb(36, 37, 46);
+  margin: 10px auto;
+}
+.checkbox-round {
+  width: 1.3em;
+  height: 1.3em;
+  margin: 5px 10px;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.checkbox-round:checked {
+  background-color: rgb(151, 193, 241);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: rgb(129, 166, 248, 0.5);
+  border: none;
+  box-shadow:1px 1px 3px rgb(34, 32, 32);
+  color: rgb(32, 32, 43);
+  text-align: center;
+  font-size: 20px;
+  padding: 8px;
+  width: 115px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
 }
