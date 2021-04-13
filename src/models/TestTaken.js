@@ -1,4 +1,4 @@
-const url = `http://localhost:4000`
+const url = process.env.REACT_APP_API_URL || `http://localhost:4000`
 
 class TestTakenModel {
   // the "static" keyword allows us to invoke the method without an instance of the class
