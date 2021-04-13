@@ -5,7 +5,7 @@ import { AppBar, Toolbar, makeStyles, List, Container } from "@material-ui/core"
 import { IconButton } from "@material-ui/core"
 import { Home } from "@material-ui/icons"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=> ({
     navbarDisplayFlex: {
         display: `flex`,
         justifyContent: `flexstart`,
@@ -18,6 +18,9 @@ const useStyles = makeStyles({
         flexdirection:'column',
     },
     linkText: {
+        [theme.breakpoints.down('sm')]: {
+            margin:'15px -5px',
+        },
         textDecoration: `none`,
         color: `white`,
         top: 0,
@@ -28,7 +31,7 @@ const useStyles = makeStyles({
         backgroundColor:'#191a1ded',
         position: 'fixed',
     }
-});
+}));
     
 function Navbar(){
     const classes = useStyles();

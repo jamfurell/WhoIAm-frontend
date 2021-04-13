@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme =>({
     brandName: {
         [theme.breakpoints.down('sm')]: {
             fontSize:'150px',
-            marginTop: '-650px',
+            marginTop: '-575px',
             marginLeft: '50px',
         },
         [theme.breakpoints.up('md')]: {
