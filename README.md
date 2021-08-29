@@ -29,7 +29,7 @@ As a user, I want to be able to delete my scores/results.
 * MONGODB
 * @MATERIAL UI
 
-## Link to the Frontend
+## Link to the Backend
 https://github.com/jamfurell/WhoIAm--backend
 
 ## Future Enhancements
