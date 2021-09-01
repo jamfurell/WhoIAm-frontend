@@ -14,8 +14,7 @@ import Part5 from './pages/Part5'
 class MasterForm extends Component {
 
     state = {
-        currentStep: 0, // Default is Step 1
-        questions:[],
+        currentStep: 0, 
         extraversion: 0,
         agreeableness: 0,
         conscientiousness: 0,

@@ -5,11 +5,11 @@ class TestTakenModel {
     static all = () => {
         return fetch(`${url}/TestTaken`).then(res => res.json())
     }
-
+//fetch request-get test result data for specific TestTakenId
     static show = (TestTakenId) => {
         return fetch(`${url}/TestTaken/${TestTakenId}`).then(res => res.json())
     }
-
+//fetch request-create new document with results from questionnaire 
     static create = (TestTakenData) => {
         console.log(TestTakenData)
         return fetch(`${url}/TestTaken`, {
@@ -21,7 +21,7 @@ class TestTakenModel {
         })
         .then(res => res.json())
     }
-
+//fetch request-update test data to include new username for specific TestTakenId
     static update= (TestTakenId, TestTaken) => {
         console.log(TestTakenId)
 
@@ -33,10 +33,8 @@ class TestTakenModel {
         body: JSON.stringify(TestTaken)
         })
         .then(res => res.json())
-        // let request= axios.put(`${endPoint}/${todo._id}`, todo);
-        // return request;
     }
-
+//fetch request-delete test data for specific TestTakenId
     static delete= (TestTakenId) => {
         return fetch(`${url}/TestTaken/${TestTakenId}`, 
         {
